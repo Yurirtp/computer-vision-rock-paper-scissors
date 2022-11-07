@@ -1,3 +1,4 @@
+#%%
 import cv2
 from keras.models import load_model
 import numpy as np
@@ -22,3 +23,4 @@ while True:
 cap.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
+
