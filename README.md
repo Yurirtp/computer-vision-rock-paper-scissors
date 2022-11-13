@@ -32,3 +32,8 @@ Make sure you push the model and labels to your GitHub repository after committi
 Milestone 4 RPS game was created with the user typing in their choice. Using if/else statements. 
 
 
+Create another file called manual_rps.py that will be used to play the game without the camera.
+
+You will need to use the random module to pick a random option between rock, paper, and scissors and the input function to get the user's choice.
+
+Create two functions: get_computer_choice and get_user_choice. The first function will randomly pick an option between "Rock", "Paper", and "Scissors" and return the choice. The second function will ask the user for an input and return it
