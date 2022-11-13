@@ -20,9 +20,9 @@ def get_winner(computer_choice, user_choice):
     elif (computer_choice == "rock" and user_choice == "paper") or (computer_choice == "paper" and user_choice == "scissors") or (computer_choice == "scissors" and user_choice == "rock"):
         result =("You won!")
     else: result = "You lost" 
-    print(result)
-    
-      
+    print(result)    
 
-get_winner(computer_choice= ['rock','paper','scissors'], user_choice= input)
+def play():
+    get_winner(computer_choice= ['rock','paper','scissors'], user_choice= input)
 
+play()
