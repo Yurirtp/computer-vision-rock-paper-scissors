@@ -23,6 +23,8 @@ def get_winner(computer_choice, user_choice):
     print(result)    
 
 def play():
-    get_winner(computer_choice= ['rock','paper','scissors'], user_choice= input)
+    computer_choice= ['rock','paper','scissors']
+    user_choice = input
+    get_winner(computer_choice, user_choice)
 
 play()
