@@ -43,3 +43,5 @@ def get_prediction():
 
 
 get_prediction()
+
+# %%
