@@ -56,13 +56,12 @@ def get_winner(computer_choice, user_choice):
     else: result = "You lost" 
     print(result)   
 
-def play():
+def get_logic(outcome):
     computer_choice = get_computer_choice()
     user_choice = get_prediction()
     outcome = get_winner(computer_choice, user_choice)
     computer_wins = 0 
     user_wins = 0 
-    outcome
     while not (computer_wins == 3 or user_wins ==3):
         if outcome == "You lost":
             computer_wins+=1
@@ -78,8 +77,12 @@ def play():
     else:
         pass
     print(f"Final scores are: Computer {computer_wins} VS. You {user_wins}")
+    cv2.destroyAllWindows()
 
-   
+def play():
+    outcome = get_winner()
+    logic = get_logic(outcome)
+    logic
 
 play()
 
