@@ -10,8 +10,8 @@ def get_prediction():
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     print("Get ready")
     start = time.time()
-    end = start + 5
-    while time.time() <= end and True: 
+    end = start + 10
+    while time.time() <= end: 
         ret, frame = cap.read()
         resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
         image_np = np.array(resized_frame)
@@ -29,12 +29,13 @@ def get_prediction():
 
         elif time.time() == end: 
             return user_choice
-        cv2.destroyAllWindows()    
-
-
-    # After the loop release the cap object
+            # After the loop release the cap object 
     cap.release()
+    cv2.destroyAllWindows()
     return str(user_choice)
+
+   
+    
 
     # Destroy all the windows
 
