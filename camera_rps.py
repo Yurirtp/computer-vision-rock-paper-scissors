@@ -11,7 +11,7 @@ def get_prediction():
     print("Get ready")
     start = time.time()
     end = start + 5
-    while time.time() < end and True: 
+    while time.time() <= end and True: 
         ret, frame = cap.read()
         resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
         image_np = np.array(resized_frame)
@@ -28,7 +28,10 @@ def get_prediction():
             break
 
         elif time.time() == end: 
-            return user_choice    
+            return user_choice
+        cv2.destroyAllWindows()    
+
+
     # After the loop release the cap object
     cap.release()
     return str(user_choice)
