@@ -41,9 +41,10 @@ Create two functions: get_computer_choice and get_user_choice. The first functio
 ## Milestone 5 
 Combination of milestone 3 and 4. This allows the user to show their choice to the camera and it returns the winner. There is an easy and hard mode where the computer does not randomly choose, and predicts based on the user choice. For MIlestone 5, get_prediction funtion was created by using the model as the main body, this model draws frames until the user quits or when the 5 second countdown finishes. It then returns a prediction of what the user has chosen. The model prints out a list of probabilities for each class. Then chooses the class with the highest probability. Whatever the probability corresponds to from the list is the users output. In milestone 5 includes combines everythong together to play game of rock paper scissors between the computer and the user thorugh a webcam. The player that wins 3 rounds is the winner.
 
-image.png
-image.png
-image.png
+![image](https://user-images.githubusercontent.com/116115861/203436413-e649823d-b189-4c07-a05b-4a06290bceca.png)
+![image](https://user-images.githubusercontent.com/116115861/203436472-1c50cef8-c29c-4517-8c08-72f1eb2eebb3.png)
+![image](https://user-images.githubusercontent.com/116115861/203436590-a2425085-9d65-4628-8f0c-3c66a1a56599.png)
+
 
 Getting user input via Keras model
 The function get_prediction() opens an openCV capture window and passes each capture frame to the input layer of the keras model. The captured frame is then displayed with a countdown timer in seconds and the current prediction of the model, for user feedback. When the countdown timer reaches zero, the move corresponding to the argmax of the softmax layer on that frame is returned as an output of the function.
