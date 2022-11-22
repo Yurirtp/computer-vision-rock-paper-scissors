@@ -16,7 +16,8 @@ class rock_paper_scissors:
         model = load_model('keras_model.h5')
         cap = cv2.VideoCapture(0)
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-        print("Get ready")
+        print("Get ready!")
+        print("Image will be captured in 5 seconds.")
         start = time.time()
         end = start + 5
         while time.time() <= end: 
@@ -34,7 +35,6 @@ class rock_paper_scissors:
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 cv2.destroyAllWindows()
                 break
-
             elif time.time() == end: 
                 return user_choice
                 # After the loop release the cap object 
@@ -49,49 +49,41 @@ class rock_paper_scissors:
 
 
     def get_winner(self, computer_choice, user_choice):
-        computer_choice = self.get_computer_choice()
-        user_choice = self.get_prediction()
-        while True:
-            print(f"The computer picked {computer_choice}, you picked {user_choice}")
-            if (computer_choice == "rock" and user_choice == "paper") or (computer_choice == "paper" and user_choice == "scissors") or (computer_choice == "scissors" and user_choice == "rock"):
-                result = "You won!"
-                self.user_wins = self.user_wins + 1 
-                break
-            elif (computer_choice == "paper" and user_choice == "rock") or (computer_choice == "scissors" and user_choice == "paper") or (computer_choice == "rock" and user_choice == "scissors"):
-                result = "You lost"
-                self.computer_wins = self.computer_wins + 1
-                break
-            else: result = ("It is a tie!")
-            break
-        print(result) 
-        self.game_logic()
+        print(f"The computer picked {computer_choice}, you picked {user_choice}")
+        if (computer_choice == "rock" and user_choice == "paper") or (computer_choice == "paper" and user_choice == "scissors") or (computer_choice == "scissors" and user_choice == "rock"):
+            result = "You won!"
+            self.user_wins = self.user_wins + 1 
+            pass
+        elif (computer_choice == "paper" and user_choice == "rock") or (computer_choice == "scissors" and user_choice == "paper") or (computer_choice == "rock" and user_choice == "scissors"):
+            result = "You lost"
+            self.computer_wins = self.computer_wins + 1
+            pass
+        else: result = ("It is a tie!")
+        pass
+        print(result)
+        
 
-    def game_logic(self):
-        wins = self.computer_wins
-        winz = self.user_wins
-        computer_choice = self.get_computer_choice()
-        user_choice = self.get_prediction()
-        while True:
-            if wins or winz != 3:
-                self.get_winner(computer_choice, user_choice)
-            elif wins == 3 and wins > winz:
+def play(comp_list = ['rock','paper','scissors']):
+    xro = rock_paper_scissors(comp_list)
+    wins = 0
+    winz = 0
+    while True:
+            computer_choice = xro.get_computer_choice()
+            user_choice = xro.get_prediction()
+            xro.get_winner(computer_choice, user_choice)
+            wins = xro.computer_wins
+            winz = xro.user_wins
+            if wins == 3 and wins > winz:
                 print("Computer is the winner!")
                 break
             elif winz == 3 and winz > wins:
                 print("Congratulations the User Wins!")
                 break
-        print(f"Final scores are: Computer {wins} VS. You {winz}")
-        cv2.destroyAllWindows()
-        
-   
-        
-
-def play(comp_list = ['rock','paper','scissors']):
-    xro = rock_paper_scissors(comp_list)
-    xro.game_logic()
+    print(f"Final scores are: Computer {wins} VS. You {winz}")
 
 
 play()
+       
         
 
         
