@@ -37,3 +37,18 @@ Create another file called manual_rps.py that will be used to play the game with
 You will need to use the random module to pick a random option between rock, paper, and scissors and the input function to get the user's choice.
 
 Create two functions: get_computer_choice and get_user_choice. The first function will randomly pick an option between "Rock", "Paper", and "Scissors" and return the choice. The second function will ask the user for an input and return it
+
+## Milestone 5 
+Combination of milestone 3 and 4. This allows the user to show their choice to the camera and it returns the winner. There is an easy and hard mode where the computer does not randomly choose, and predicts based on the user choice. For MIlestone 5, get_prediction funtion was created by using the model as the main body, this model draws frames until the user quits or when the 5 second countdown finishes. It then returns a prediction of what the user has chosen. The model prints out a list of probabilities for each class. Then chooses the class with the highest probability. Whatever the probability corresponds to from the list is the users output. In milestone 5 includes combines everythong together to play game of rock paper scissors between the computer and the user thorugh a webcam. The player that wins 3 rounds is the winner.
+
+image.png
+image.png
+image.png
+
+Getting user input via Keras model
+The function get_prediction() opens an openCV capture window and passes each capture frame to the input layer of the keras model. The captured frame is then displayed with a countdown timer in seconds and the current prediction of the model, for user feedback. When the countdown timer reaches zero, the move corresponding to the argmax of the softmax layer on that frame is returned as an output of the function.
+
+Making the full game
+The functions get_prediciton(), get_computer_choice() and get_winner() are wrapped as methods of a class, RPS. The init method of the class requires the keras model as an input, and assigns number of wins for each player as attributes.
+
+The final game is then created using a function, play_game(), which creates an instance of RPS, and runs repeat instances of the game by calling its methods inside an iterating while loop, which terminates if either player reaches three wins.
